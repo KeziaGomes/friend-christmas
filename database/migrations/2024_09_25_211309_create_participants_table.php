@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\Group::class)->constrained();
             $table->string('name');
             $table->timestamps();
             $table->softDeletes();

@@ -3,13 +3,14 @@
 namespace App\Livewire;
 
 use App\Models\Group;
+use App\Models\Participant;
 use Livewire\Component;
 
 class CreateGroup extends Component
 {
-    public $groupName;
-    public $groupDescription;
-    public $participants = [];
+    public string $groupName;
+    public string $groupDescription;
+    public array $participants = [];
 
     protected $rules = [
         'groupName' => 'required|string|min:3',
@@ -22,12 +23,22 @@ class CreateGroup extends Component
     {
         $this->validate();
 
-        // Cria o grupo e salva os participantes
-        Group::create([
+        $group = Group::create([
             'name' => $this->groupName,
             'description' => $this->groupDescription,
-            // Salvar participantes logicamente com relacionamento ou em uma tabela separada
         ]);
+
+        $dataParticipant=[];
+        foreach ($this->participants as $key => $value) {
+            $dataParticipant[] = [
+                'name' => $value,
+                'group_id' => $group->id,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+
+        Participant::query()->insert($dataParticipant);
 
         // Mensagem de sucesso
         session()->flash('message', 'Grupo criado com sucesso!');
