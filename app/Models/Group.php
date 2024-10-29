@@ -11,6 +11,12 @@ class Group extends Model
 
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'uuid',
     ];
+
+    public function participants()
+    {
+        return $this->hasMany(Participant::class);
+    }
 }

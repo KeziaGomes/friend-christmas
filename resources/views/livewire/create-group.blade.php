@@ -30,15 +30,30 @@
     <div x-show="step === 1" class="space-y-4">
         <div>
             <label for="groupName" class="block text-sm font-medium text-gray-700">Nome do Grupo</label>
-            <input type="text" x-model="groupName" id="groupName" class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            <input
+                type="text"
+                x-model="groupName"
+                id="groupName"
+                class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            >
         </div>
         <div>
             <label for="groupDescription" class="block text-sm font-medium text-gray-700">Descrição</label>
-            <textarea x-model="groupDescription" id="groupDescription" class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+            <textarea
+                x-model="groupDescription"
+                id="groupDescription"
+                class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            ></textarea>
         </div>
         <div class="flex justify-between mt-6">
             <span></span> <!-- Espaço vazio para centralizar o botão -->
-            <button type="button" class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600" @click="step = 2">Próximo</button>
+            <button
+                type="button"
+                class="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+                @click="step = 2"
+            >
+                Próximo
+            </button>
         </div>
     </div>
 
@@ -46,8 +61,19 @@
     <div x-show="step === 2" class="space-y-4">
         <div>
             <label for="participantName" class="block text-sm font-medium text-gray-700">Nome do Participante</label>
-            <input type="text" x-model="participantName" id="participantName" class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            <button type="button" @click="addParticipant" class="px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-600">Adicionar Participante</button>
+            <input
+                type="text"
+                x-model="participantName"
+                id="participantName"
+                class="block w-full p-2 mt-1 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            >
+            <button
+                type="button"
+                @click="addParticipant"
+                class="px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+            >
+                Adicionar Participante
+            </button>
         </div>
 
         <!-- Lista de Participantes -->
@@ -83,7 +109,7 @@
 
         <div class="flex justify-between mt-6">
             <button type="button" class="px-4 py-2 text-gray-700 bg-gray-300 rounded hover:bg-gray-400" @click="step = 2">Voltar</button>
-            <button type="button" class="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600" @click="submitForm">Criar Grupo</button>
+            <button type="button" class="px-4 py-2 text-white bg-green-500 rounded hover:bg-green-600" @click="submitForm">Sortear</button>
         </div>
     </div>
 

@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->id();
+            $table->uuid()->index();
             $table->foreignIdFor(\App\Models\Group::class)->constrained();
             $table->string('name');
+            $table->foreignIdFor(\App\Models\Participant::class, 'amigo_oculto_id')
+                ->nullable()
+                ->constrained('participants');
+            $table->string('password')->nullable();
+            $table->text('sugestao_de_presente')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

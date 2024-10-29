@@ -15,4 +15,9 @@ class Participant extends Model
     {
         return $this->belongsTo(Group::class);
     }
+
+    public function amigoOculto()
+    {
+        return $this->belongsTo(Participant::class, 'amigo_oculto_id');
+    }
 }
