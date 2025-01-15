@@ -1,5 +1,6 @@
 /.phpunit.cache
 /node_modules
+/pgdata
 /public/hot
 /public/storage
 /storage/*.key
